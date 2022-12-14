@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-time-now
+  namespace: app-time-now
+  labels:
+    project: google
+    app: time-now
+    cost-center: google-0001
+spec: 
+  selector: 
+    app: time-now
+  ports: 
+  - name: http
+    port: 8080
+    protocol: TCP
