@@ -6,11 +6,11 @@ metadata:
   namespace: app-time-now
   labels:
     project: google
-    app: time-now
+    app: app-time-now
     cost-center: google-0001
 spec: 
   selector: 
-    app: time-now
+    app: app-time-now
   ports: 
   - name: http
     port: 8080

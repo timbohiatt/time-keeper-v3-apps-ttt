@@ -6,17 +6,17 @@ metadata:
   namespace: app-time-now
   labels:
     project: google
-    app: time-now
+    app: app-time-now
     cost-center: google-0001
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: time-now
+      app: app-time-now
   template:
     metadata:
       labels:
-        app: time-now
+        app: app-time-now
     spec:
       containers:
       - name: app-time-now
