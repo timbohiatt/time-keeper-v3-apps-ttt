@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: apps-tell-the-time
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: europe-west6 
+        url: https://192.168.0.2
+      - cluster: australia-southeast1
+        url: https://172.16.0.18
+  template:
+    metadata:
+      name: '{{cluster}}-tell-the-time'
+    spec:
+      project: apps-tell-the-time
+      source:
+        repoURL: https://github.com/timbohiatt/time-keeper-v3-apps-ttt.git
+        targetRevision: HEAD
+        path: deployment/manifests
+      destination:
+        server: '{{url}}'
+        namespace: app-time-now
